@@ -56,6 +56,11 @@ void sjf(Process p[], int n)
         {
             if(!p[i].done && p[i].at <= curr_time && p[i].bt <= smallest_bt)
             {
+                if(p[i].bt == smallest_bt && p[i].at > p[idx].at)
+                {
+                    continue;
+                }
+                
                 smallest_bt = p[i].bt;
                 idx = i;
             }
@@ -85,7 +90,12 @@ void srtf(Process p[], int n){
         int smallest_rt = 1e9, idx = -1;
 
         for(int i = 0; i < n; i++){
-            if(p[i].at <= curr_time && p[i].remaining_bt > 0 && p[i].remaining_bt < smallest_rt){
+            if(p[i].at <= curr_time && p[i].remaining_bt > 0 && p[i].remaining_bt <= smallest_rt){
+                if(p[i].remaining_bt == smallest_rt && p[i].at > p[idx].at)
+                {
+                    continue;
+                }
+                
                 smallest_rt = p[i].remaining_bt;
                 idx = i;
             }
@@ -150,3 +160,4 @@ int main()
     printf("Avg TAT: %.2f\n", avg_tat);
     printf("Avg WT: %.2f\n", avg_wt);
 }
+
