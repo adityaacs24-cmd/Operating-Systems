@@ -79,6 +79,7 @@ void runEDF(struct Process p[], int n, int hyperPeriod) {
                 if (p[i].remaining > 0) {
                     printf("[!] Deadline Miss: P%d at time %d\n", p[i].pid, t);
                 }
+                
                 p[i].remaining = p[i].burst;
                 p[i].current_deadline = t + p[i].deadline;
             }

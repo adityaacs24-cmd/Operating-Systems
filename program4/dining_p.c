@@ -9,6 +9,7 @@ void *philosopher(void *num) {
     int id = *(int *)num;
     int left = id;            // left fork index
     int right = (id + 1) % N; // right fork index
+
     while (1) {
         printf("Philosopher %d is thinking.\n", id);
         sleep(1); // Thinking
@@ -36,22 +37,23 @@ void *philosopher(void *num) {
         pthread_mutex_unlock(&forks[right]);
         printf("Philosopher %d put down forks %d and %d.\n", id, left, right);
     }
+
     return NULL;
 }
 
 int main() {
     int i;
     int ids[N]; // Initialize forks (mutexes)
+
     for (i = 0; i < N; i++) {
         pthread_mutex_init(&forks[i], NULL);
         ids[i] = i;
     }
     // Create philosopher threads
-    for (i = 0; i < N; i++)
-
-    {
+    for (i = 0; i < N; i++) {
         pthread_create(&philosophers[i], NULL, philosopher, &ids[i]);
     } // Join threads (will never happen here, but good practice)
+    
     for (i = 0; i < N; i++) {
         pthread_join(philosophers[i], NULL);
     }
@@ -59,5 +61,6 @@ int main() {
     for (i = 0; i < N; i++) {
         pthread_mutex_destroy(&forks[i]);
     }
+
     return 0;
 }

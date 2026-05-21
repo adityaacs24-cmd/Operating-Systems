@@ -26,7 +26,7 @@ int main() {
 
     printf("\n--- Proportional Share Scheduling ---\n");
     printf("Enter the Time Period for scheduling: ");
-    
+
     int m;
     scanf("%d", &m);
 
@@ -52,6 +52,6 @@ int main() {
         printf("\nThe Process: %s gets %0.2f%% of Processor Time.\n", p[i].name,
                ((p[i].tickets / total_T) * 100));
     }
-    
+
     return 0;
 }
