@@ -114,7 +114,7 @@ void priority_np(Process p[], int n) {
 
         for (int i = 0; i < n; i++) {
             if (!p[i].done && p[i].at <= curr_time && p[i].priority <= highest_pr) {
-                if (p[i].priority == highest_pr && p[i].at > p[idx].priority) {
+                if (p[i].priority == highest_pr && p[i].at > p[idx].at) {
                     continue;
                 }
 

@@ -10,7 +10,7 @@ int out = 0;
 int empty = BUFFER_SIZE;
 int full = 0;
 
-void produce() { 
+void produce() {
     if (empty == 0) {
         printf("\nBuffer is full! Cannot produce.\n");
         return;
@@ -21,7 +21,7 @@ void produce() {
     scanf("%d", &item);
 
     buffer[in] = item;
-    printf("Produced: %d\n", item, in);
+    printf("Produced: %d\n", item);
 
     in = (in + 1) % BUFFER_SIZE;
     empty--;
@@ -35,7 +35,7 @@ void consume() {
     }
 
     int item = buffer[out];
-    printf("Consumed: %d\n", item, out);
+    printf("Consumed: %d\n", item);
 
     out = (out + 1) % BUFFER_SIZE;
     full--;
@@ -56,17 +56,17 @@ int main() {
             break;
 
         switch (choice) {
-        case 1:
-            produce();
-            break;
-        case 2:
-            consume();
-            break;
-        case 3:
-            printf("Exiting...\n");
-            exit(0);
-        default:
-            printf("Invalid choice!\n");
+            case 1:
+                produce();
+                break;
+            case 2:
+                consume();
+                break;
+            case 3:
+                printf("Exiting...\n");
+                exit(0);
+            default:
+                printf("Invalid choice!\n");
         }
     }
 

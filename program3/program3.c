@@ -52,7 +52,7 @@ void runRMS(struct Process p[], int n, int hyperPeriod) {
                 break;
             }
         }
-        
+
         if (chosen != -1) {
             printf("Time %d: P%d\n", t, p[chosen].pid);
             p[chosen].remaining--;
@@ -79,7 +79,7 @@ void runEDF(struct Process p[], int n, int hyperPeriod) {
                 if (p[i].remaining > 0) {
                     printf("[!] Deadline Miss: P%d at time %d\n", p[i].pid, t);
                 }
-                
+
                 p[i].remaining = p[i].burst;
                 p[i].current_deadline = t + p[i].deadline;
             }
@@ -98,8 +98,7 @@ void runEDF(struct Process p[], int n, int hyperPeriod) {
         }
 
         if (chosen != -1) {
-            printf("Time %dms: P%d (Abs Deadline: %d)\n", t, p[chosen].pid,
-                   p[chosen].current_deadline);
+            printf("Time %dms: P%d (Abs Deadline: %d)\n", t, p[chosen].pid, p[chosen].current_deadline);
             p[chosen].remaining--;
         } else {
             printf("Time %dms: Idle\n", t);
@@ -169,17 +168,17 @@ int main() {
             temp_p[i] = p[i];
 
         switch (choice) {
-        case 1:
-            runRMS(temp_p, n, hyperPeriod);
-            break;
-        case 2:
-            runEDF(temp_p, n, hyperPeriod);
-            break;
-        case 3:
-            runProportionalShare(temp_p, n, hyperPeriod);
-            break;
-        default:
-            printf("Invalid choice!\n");
+            case 1:
+                runRMS(temp_p, n, hyperPeriod);
+                break;
+            case 2:
+                runEDF(temp_p, n, hyperPeriod);
+                break;
+            case 3:
+                runProportionalShare(temp_p, n, hyperPeriod);
+                break;
+            default:
+                printf("Invalid choice!\n");
         }
     }
 
