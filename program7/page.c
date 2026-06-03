@@ -24,7 +24,6 @@ int main() {
     int index = 0;
 
     for (i = 0; i < n; i++) {
-
         int found = 0;
 
         for (j = 0; j < f; j++) {
@@ -61,7 +60,6 @@ int main() {
     faults = 0;
 
     for (i = 0; i < n; i++) {
-
         int found = 0;
 
         for (j = 0; j < f; j++) {

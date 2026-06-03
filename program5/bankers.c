@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #define MAX_PROCESSES 10
 #define MAX_RESOURCES 10
@@ -59,9 +59,7 @@ int main() {
         bool found = false;
 
         for (int i = 0; i < n; i++) {
-
             if (finish[i] == false) {
-
                 bool canExecute = true;
 
                 for (int j = 0; j < m; j++) {
@@ -72,7 +70,6 @@ int main() {
                 }
 
                 if (canExecute) {
-
                     for (int j = 0; j < m; j++) {
                         work[j] += allocation[i][j];
                     }
@@ -104,8 +101,7 @@ int main() {
         }
 
         printf("\n");
-    }
-    else {
+    } else {
         printf("\nSystem is NOT in safe state.\n");
     }
 

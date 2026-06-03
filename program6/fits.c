@@ -2,7 +2,6 @@
 #define MAX 100
 
 void printTable(char name[], int allocation[], int processes[], int n) {
-
     printf("\n===== %s =====\n", name);
     printf("Process No.\tProcess Size\tBlock No.\n");
 
@@ -17,7 +16,6 @@ void printTable(char name[], int allocation[], int processes[], int n) {
 }
 
 void firstFit(int blocks[], int m, int processes[], int n) {
-
     int allocation[MAX];
     int tempBlocks[MAX];
 
@@ -30,8 +28,8 @@ void firstFit(int blocks[], int m, int processes[], int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             if (tempBlocks[j] >= processes[i]) {
-                allocation[i] = j;
                 tempBlocks[j] -= processes[i];
+                allocation[i] = j;
                 break;
             }
         }
@@ -41,7 +39,6 @@ void firstFit(int blocks[], int m, int processes[], int n) {
 }
 
 void bestFit(int blocks[], int m, int processes[], int n) {
-
     int allocation[MAX];
     int tempBlocks[MAX];
 
@@ -72,7 +69,6 @@ void bestFit(int blocks[], int m, int processes[], int n) {
 }
 
 void worstFit(int blocks[], int m, int processes[], int n) {
-
     int allocation[MAX];
     int tempBlocks[MAX];
 
@@ -103,7 +99,6 @@ void worstFit(int blocks[], int m, int processes[], int n) {
 }
 
 int main() {
-
     int m, n;
     int blocks[MAX], processes[MAX];
 
